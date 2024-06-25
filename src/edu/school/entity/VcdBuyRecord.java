@@ -7,6 +7,8 @@ public class VcdBuyRecord {
 
     private String vcdBuyNum;
 
+    private String vcdPrice;
+
     public void setVcdNo(String vcdNo){
         this.vcdNo = vcdNo;
     }

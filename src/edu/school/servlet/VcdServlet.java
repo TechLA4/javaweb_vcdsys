@@ -45,13 +45,20 @@ public class VcdServlet extends BaseServlet {
 	//查看编号
 	protected void findVcdByid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//条件查询
 		String vcdNo = request.getParameter("vcdNo");
+		System.out.println(vcdNo);
 		List<Vcd> list = service.findVcdByid(vcdNo);
 		if (null == list || list.size() == 0) {
 			request.setAttribute("msg", "无此信息");
 			request.getRequestDispatcher("/WEB-INF/vcd/vcdListById.jsp").forward(request, response);
 		} else {
 			request.removeAttribute("msg");
-			request.setAttribute("list", list);
+			System.out.println(list);
+			list.stream().forEach(t -> {
+				System.out.print(t.getVcdName()+" ");
+				System.out.print(t.getVcdNo()+ " ");
+				System.out.println(t.getPrice());
+			});
+			request.setAttribute("vcdList", list);
 			request.getRequestDispatcher("/WEB-INF/vcd/vcdListById.jsp").forward(request, response);
 		}
 	}
@@ -160,7 +167,9 @@ public class VcdServlet extends BaseServlet {
 		int totalCount=service.queryCountByUser();
 		//2.获取的当前页码,这个是从页面获取的
 		String currentPage = request.getParameter("currentPage");
+		System.out.println(currentPage);
 		PageTool pageTool=new PageTool(totalCount, currentPage);
+
 		List<User> vcdList=service.findJhxx(pageTool);
 		//2.存储到域对象中
 		request.setAttribute("vcdList", vcdList);
@@ -205,6 +214,7 @@ public class VcdServlet extends BaseServlet {
 		int totalCount=service.queryCountByBuy();
 		//2.获取的当前页码,这个是从页面获取的
 		String currentPage = request.getParameter("currentPage");
+
 		PageTool pageTool=new PageTool(totalCount, currentPage);
 		List<Buy> vcdList=service.findBuy(pageTool);
 		//2.存储到域对象中

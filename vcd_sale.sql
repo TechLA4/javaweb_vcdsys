@@ -17,7 +17,6 @@
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
-drop database vcd_sale;
 create database vcd_sale;
 use vcd_sale;
 
@@ -62,6 +61,7 @@ CREATE TABLE `vcd`  (
 -- ----------------------------
 INSERT INTO `vcd` VALUES (7, '1003', '天空之城', '天空之城', '2022-01-08', '11', '999');
 INSERT INTO `vcd` VALUES (8, '1004', '老人与海', '老人与海', '2022-01-15', '35', '997');
+INSERT INTO `vcd` VALUES (9, '1001', '三国1', '三国1', '2022-01-07', '11', '999');
 INSERT INTO `vcd` VALUES (10, '1005', '南京南京', '南京南京', '2022-01-15', '35', '999');
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -89,6 +89,8 @@ CREATE TABLE `student`  (
 -- ----------------------------
 INSERT INTO `student` VALUES (3, '10003', '李明2', '123456', '133333', '男','2021-03-26');
 INSERT INTO `student` VALUES (4, '10006', '张三1', '123456', '234431', '男', '2021-03-26');
+
+
 
 
 
