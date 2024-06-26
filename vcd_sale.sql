@@ -64,15 +64,28 @@ INSERT INTO `vcd` VALUES (8, '1004', '老人与海', '老人与海', '2022-01-15
 INSERT INTO `vcd` VALUES (9, '1001', '三国1', '三国1', '2022-01-07', '11', '999');
 INSERT INTO `vcd` VALUES (10, '1005', '南京南京', '南京南京', '2022-01-15', '35', '999');
 
+INSERT INTO `vcd` VALUES (11, '1006', '星际穿越', '星际穿越', '2022-01-20', '50', '100');
+INSERT INTO `vcd` VALUES (12, '1007', '盗梦空间', '盗梦空间', '2022-01-25', '45', '150');
+INSERT INTO `vcd` VALUES (13, '1008', '阿凡达', '阿凡达', '2022-02-01', '60', '200');
+INSERT INTO `vcd` VALUES (14, '1009', '泰坦尼克号', '泰坦尼克号', '2022-02-05', '30', '300');
+INSERT INTO `vcd` VALUES (15, '1010', '哈利波特', '哈利波特', '2022-02-10', '40', '500');
+INSERT INTO `vcd` VALUES (16, '1011', '指环王', '指环王', '2022-02-15', '55', '250');
+INSERT INTO `vcd` VALUES (17, '1012', '蝙蝠侠', '蝙蝠侠', '2022-02-20', '35', '350');
+INSERT INTO `vcd` VALUES (18, '1013', '蜘蛛侠', '蜘蛛侠', '2022-02-25', '25', '450');
+INSERT INTO `vcd` VALUES (19, '1014', '复仇者联盟', '复仇者联盟', '2022-03-01', '65', '150');
+INSERT INTO `vcd` VALUES (20, '1015', '黑客帝国', '黑客帝国', '2022-03-05', '55', '175');
+
+
+
 SET FOREIGN_KEY_CHECKS = 1;
 
 
 
 -- ----------------------------
--- Table structure for student
+-- Table structure for customer
 -- ----------------------------
-DROP TABLE IF EXISTS `student`;
-CREATE TABLE `student`  (
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer`  (
                             `id` int(11) NOT NULL AUTO_INCREMENT,
                             `stuno` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL UNIQUE ,
                             `realname` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -85,10 +98,10 @@ CREATE TABLE `student`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
--- Records of student
+-- Records of customer
 -- ----------------------------
-INSERT INTO `student` VALUES (3, '10003', '李明2', '123456', '133333', '男','2021-03-26');
-INSERT INTO `student` VALUES (4, '10006', '张三1', '123456', '234431', '男', '2021-03-26');
+INSERT INTO `customer` VALUES (3, '10003', '李明2', '123456', '133333', '男','2021-03-26');
+INSERT INTO `customer` VALUES (4, '10006', '张三1', '123456', '234431', '男', '2021-03-26');
 
 
 
@@ -109,7 +122,7 @@ CREATE TABLE `buy`  (
   `creattime` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `price` DECIMAL(10,2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
-  FOREIGN KEY (`stuno`) REFERENCES student(`stuno`),
+  FOREIGN KEY (`stuno`) REFERENCES customer(`stuno`),
   FOREIGN KEY (`vcdNo`) REFERENCES vcd(`vcdNo`)
  ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -140,7 +153,7 @@ CREATE TABLE `user`  (
   `flag` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   FOREIGN KEY (`vcdNo`) REFERENCES vcd(`vcdNo`),
-  FOREIGN KEY (`userNo`) REFERENCES student(`stuno`)
+  FOREIGN KEY (`userNo`) REFERENCES customer(`stuno`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
@@ -201,7 +214,28 @@ create procedure getVcdSalesCountSummary(IN start_date varchar(255),IN end_date 
 begin
     select vcdNo, vcdName, count(*) as sales_count, sum(price) as sales_amount
     from buy
-    where DATE(STR_TO_DATE(creattime,'%Y-%m-%d')) between STR_TO_DATE(start_date,'%Y-%m-%d') AND STR_TO_DATE(end_date, '%Y-%m-%d')
+    where DATE(STR_TO_DATE(creattime,'%Y/%m/%d')) between STR_TO_DATE(start_date,'%Y/%m/%d') AND STR_TO_DATE(end_date, '%Y/%m/%d')
     group by vcdNo, vcdName;
 end;
+
+CREATE PROCEDURE getVcdBorrowingCountSummary(IN start_date VARCHAR(255), IN end_date VARCHAR(255))
+BEGIN
+    SELECT
+        vcdNo,
+        vcdName,
+        COUNT(*) AS borrowing_count,
+        SUM(CASE WHEN flag = 1 AND STR_TO_DATE(ghsj, '%Y/%m/%d') < STR_TO_DATE(end_date, '%Y/%m/%d') THEN 1 ELSE 0 END) AS return_count
+    FROM
+        `user`
+    WHERE
+        DATE(STR_TO_DATE(jysj, '%Y/%m/%d')) BETWEEN STR_TO_DATE(start_date, '%Y/%m/%d') AND STR_TO_DATE(end_date, '%Y/%m/%d')
+    GROUP BY
+        vcdNo,
+        vcdName;
+END;
+
+drop procedure getVcdBorrowingCountSummary;
+
+call getVcdBorrowingCountSummary('2022/01/04','2024/06/29');
+
 

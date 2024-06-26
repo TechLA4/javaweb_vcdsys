@@ -10,7 +10,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> vcd管理 <span class="c-gray en">&gt;</span>个人借阅vcd </nav>
 <div class="page-container">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <a class="btn btn-success radius" title="返回主界面" href="UserServlet?action=findMyJyxx&stuno=${student.stuno}" onclick="Hui_admin_tab(this)" ><i class="Hui-iconfont">&#xe67d;</i> 返回主界面</a>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <a class="btn btn-success radius" title="返回主界面" href="UserServlet?action=findMyJyxx&stuno=${customer.stuno}" onclick="Hui_admin_tab(this)" ><i class="Hui-iconfont">&#xe67d;</i> 返回主界面</a>
 		</span>  </div>
 	<div class="mt-20">
 	<span class="msg" style="color:red;">${requestScope.msg}</span>

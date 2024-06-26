@@ -10,7 +10,7 @@
 <body>
 <div class="panel panel-default">
 	<div class="panel-header">购买成功</div>
-	<div class="panel-body"><button class="btn btn-success size-S radius" onclick="location.href='UserServlet?action=queryBuyVcd&stuno=${student.stuno}'">返回查看</button></div>
+	<div class="panel-body"><button class="btn btn-success size-S radius" onclick="location.href='UserServlet?action=queryBuyVcd&stuno=${customer.stuno}'">返回查看</button></div>
 </div>
 </body>
 

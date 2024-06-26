@@ -14,7 +14,7 @@
 	<div class="text-c">
 		<form action="UserServlet?action=findBuyByUser" method="post">
 			<input type="text" name="vcdNo" id="vcdNo" placeholder="根据编号查询" style="width:250px" class="input-text">
-			<input type="hidden" value="${student.stuno}" name="stuno">
+			<input type="hidden" value="${customer.stuno}" name="stuno">
 			<input type="text" name="vcdName" id="vcdName" placeholder="根据名称查询" style="width:250px" class="input-text">
 			<button  class="btn btn-success" id="search" type="submit"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 		</form>
@@ -50,13 +50,13 @@
 		<br>
 		<div style="text-align: center">
 			<div class="inline pull-right page">
-				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=queryBuyVcd&currentPage=1&stuno=${student.stuno}' >首页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=queryBuyVcd&currentPage=1&stuno=${customer.stuno}' >首页</a>
 
-				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=queryBuyVcd&currentPage=${pageTool.lastPage}&stuno=${student.stuno}'>上一页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=queryBuyVcd&currentPage=${pageTool.lastPage}&stuno=${customer.stuno}'>上一页</a>
 
-				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=queryBuyVcd&currentPage=${pageTool.nextPage}&stuno=${student.stuno}'>下一页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=queryBuyVcd&currentPage=${pageTool.nextPage}&stuno=${customer.stuno}'>下一页</a>
 
-				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=queryBuyVcd&currentPage=${pageTool.pageCount}&stuno=${student.stuno}'>尾页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=queryBuyVcd&currentPage=${pageTool.pageCount}&stuno=${customer.stuno}'>尾页</a>
 
 				&nbsp;&nbsp;&nbsp;共<span class='current'> ${pageTool.totalCount } </span>条记录
 				<span class='current'> ${pageTool.currentPage }/${pageTool.pageCount } </span>页
@@ -74,7 +74,7 @@ function del_book(obj,id){
 	 //用户安全提示
     if(confirm("您确定要删除该条记录吗？")){
         //访问路径
-        location.href="${pageContext.request.contextPath}/StudentServlet?action=deleteScts&id="+id;
+        location.href="${pageContext.request.contextPath}/CounterServlet?action=deleteScts&id="+id;
     }
 }
 

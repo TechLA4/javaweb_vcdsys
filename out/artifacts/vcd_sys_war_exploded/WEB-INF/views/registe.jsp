@@ -29,7 +29,7 @@
         <div class="m-login-warp">
             <span style="color:red;" >${msg}</span>
             <span style="color:red;" id="msg"></span>
-            <form class="layui-form"  action="StudentServlet?action=registe" method="post">
+            <form class="layui-form"  action="CustomerServlet?action=registe" method="post">
 
                 <div class="layui-form-item">
                     <input type="text" name="stuno" id="stuno" placeholder="请输入用户编号" value="${stuno}" autocomplete="off" class="layui-input">

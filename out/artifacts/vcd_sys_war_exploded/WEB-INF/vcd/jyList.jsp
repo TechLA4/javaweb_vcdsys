@@ -8,7 +8,26 @@
 %>
  <jsp:include page="/WEB-INF/common/header.jsp"/>
 
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+
+<%
+	// 在 JSP 页面中设置当前日期
+	String currentDateStr = new SimpleDateFormat("yyyy/MM/dd").format(new Date());
+%>
+
+
+
+
 <body>
+
+<!-- 获取当前日期并格式化为yyyy/MM/dd格式 -->
+<c:set var="now" value="<%= new java.util.Date() %>"/>
+<fmt:formatDate value="${now}" pattern="yyyy/MM/dd" var="nowDate"/>
+
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> vcd管理 <span class="c-gray en">&gt;</span>vcd信息管理 </nav>
 <div class="page-container">
 	<div class="text-c">
@@ -27,7 +46,7 @@
 					<th width="150">名称</th>
 					<th width="150">借阅人</th>
 					<th width="150">借阅时间</th>
-					<th width="250">归还时间</th>
+					<th width="250">预计/实际归还时间</th>
 					<th width="250">是否归还</th>
 					<th width="50">基础操作</th>
 
@@ -40,7 +59,20 @@
 					<td>${u.vcdName }</td>
 					<td>${u.jyr }</td>
 					<td>${u.jysj }</td>
-					<td>${u.ghsj }</td>
+					<td>
+						<c:choose>
+							<c:when test="${u.flag == 0}">
+								${u.ghsj}
+								<c:if test="${fn:substring(u.ghsj, 0, 10) lt nowDate}">
+									（逾期未归还）
+								</c:if>
+							</c:when>
+							<c:otherwise>
+								${u.ghsj}
+							</c:otherwise>
+						</c:choose>
+					</td>
+<%--					<td>${u.ghsj }</td>--%>
 					<c:if test="${u.flag == 0}">
 						<td style="background: red">未归还</td>
 					</c:if>

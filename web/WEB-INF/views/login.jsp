@@ -51,7 +51,7 @@
                         <button class="layui-btn layui-btn-normal" id="login" type="submit">登录</button>
                     </div>
                     <div class="layui-inline">
-                        <button type="button" onclick="location.href='StudentServlet?action=toRegiste'" class="layui-btn layui-btn-normal" >注册</button>
+                        <button type="button" onclick="location.href='CustomerServlet?action=toRegiste'" class="layui-btn layui-btn-normal" >注册</button>
 
 
                     </div>

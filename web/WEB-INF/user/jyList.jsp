@@ -30,7 +30,7 @@
 					<th width="50">名称</th>
 					<th width="120">借阅人</th>
 					<th width="80">归还时间</th>
-					<th width="50">借阅时间</th>
+					<th width="50">预计借阅时间</th>
 					<th width="50">备注</th>
 					<th width="50">是否归还</th>
 				</tr>
@@ -60,13 +60,13 @@
 		<br>
 		<div style="text-align: center">
 			<div class="inline pull-right page">
-				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=findMyJyxx&currentPage=1&stuno=${student.stuno}' >首页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=findMyJyxx&currentPage=1&stuno=${customer.stuno}' >首页</a>
 
-				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=findMyJyxx&currentPage=${pageTool.lastPage}&stuno=${student.stuno}'>上一页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=findMyJyxx&currentPage=${pageTool.lastPage}&stuno=${customer.stuno}'>上一页</a>
 
-				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=findMyJyxx&currentPage=${pageTool.nextPage}&stuno=${student.stuno}'>下一页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius"href='UserServlet?action=findMyJyxx&currentPage=${pageTool.nextPage}&stuno=${customer.stuno}'>下一页</a>
 
-				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=findMyJyxx&currentPage=${pageTool.pageCount}&stuno=${student.stuno}'>尾页</a>
+				<a class="btn btn-secondary-outline  size-MINI radius" href='UserServlet?action=findMyJyxx&currentPage=${pageTool.pageCount}&stuno=${customer.stuno}'>尾页</a>
 
 				&nbsp;&nbsp;&nbsp;共<span class='current'> ${pageTool.totalCount } </span>条记录
 				<span class='current'> ${pageTool.currentPage }/${pageTool.pageCount } </span>页

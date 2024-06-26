@@ -44,7 +44,7 @@
 					<td>${u.stock }</td>
 					<td class="f-14 td-manage">
 						<a style="text-decoration:none" class="ml-5" href="UserServlet?action=insertVcdBySc&id=${u.id}" onclick="Hui_admin_tab(this)"   title="借阅" ><button  class="btn btn-primary  size-S radius" type="button" >借阅</button></a>
-					<a style="text-decoration:none" class="ml-5" href="UserServlet?action=BuyVcdByUser&id=${u.id}&stuno=${student.stuno}" onclick="Hui_admin_tab(this)"   title="购买" ><button  class="btn btn-warning  size-S radius" type="button" >购买</button></a>
+					<a style="text-decoration:none" class="ml-5" href="UserServlet?action=BuyVcdByUser&id=${u.id}&stuno=${customer.stuno}" onclick="Hui_admin_tab(this)"   title="购买" ><button  class="btn btn-warning  size-S radius" type="button" >购买</button></a>
 					</td>
 				</tr>
 

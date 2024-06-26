@@ -19,8 +19,8 @@ PRIMARY KEY (`id`) USING BTREE
 -- ----------------------------
 INSERT INTO `admin` VALUES (1, 'admin', '123456', '张三');
 
-DROP TABLE IF EXISTS `student`;
-CREATE TABLE `student`  (
+DROP TABLE IF EXISTS `customer`;
+CREATE TABLE `customer`  (
 `id` int(11) NOT NULL AUTO_INCREMENT,
 `stuno` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
 `realname` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -34,22 +34,22 @@ PRIMARY KEY (`id`) USING BTREE
 
 
 -- ----------------------------
--- Records of student
+-- Records of customer
 -- ----------------------------
-INSERT INTO `student` VALUES (3, '10003', '李明2', '123456', NULL, '男', NULL, '2021-03-26');
-INSERT INTO `student` VALUES (4, '10006', '张三1', '123456', NULL, '男', NULL, '2021-03-26');
-INSERT INTO `student` VALUES (5, '10001', '王红', '123456', '软件技术', '男', '161302', '2021-03-26');
-INSERT INTO `student` VALUES (6, '10002', '李四', '123456', '计算机科学与技术', '男', '161301', '2021-03-26');
-INSERT INTO `student` VALUES (7, '10004', '韩小虎', '123456', '软件技术1', '男', '161301', '2021-03-26');
-INSERT INTO `student` VALUES (8, '10005', '狄云辉', '123456', '软件技术', '男', '161301', '2021-03-26');
-INSERT INTO `student` VALUES (9, '10007', '李庆照', '123456', '软件技术', '男', '161301', '2021-03-26');
-INSERT INTO `student` VALUES (10, '10009', '李清照', '123456', '软件技术', NULL, '161301', '2021-03-26');
-INSERT INTO `student` VALUES (11, '10008', '李清照', '123456', '软件技术', NULL, '161301', '2021-03-26');
-INSERT INTO `student` VALUES (12, '100008', '杨雪莹', '123456', '软件技术', NULL, '161301', '2021-03-26');
-INSERT INTO `student` VALUES (13, '100010', '2021/10/1', '132456', 'sd', '男', 'sc', '2021-04-29');
-INSERT INTO `student` VALUES (14, '100111', '2021/10/1', '132456', 'sd', '男', 'sc', '2021-04-29');
-INSERT INTO `student` VALUES (15, '1000111', '2021/10/1', '132456', 'sd', '男', 'sc', '2021-04-29');
-INSERT INTO `student` VALUES (16, '101011', '李明2', '123456', NULL, '男', NULL, '2022-01-04');
+INSERT INTO `customer` VALUES (3, '10003', '李明2', '123456', NULL, '男', NULL, '2021-03-26');
+INSERT INTO `customer` VALUES (4, '10006', '张三1', '123456', NULL, '男', NULL, '2021-03-26');
+INSERT INTO `customer` VALUES (5, '10001', '王红', '123456', '软件技术', '男', '161302', '2021-03-26');
+INSERT INTO `customer` VALUES (6, '10002', '李四', '123456', '计算机科学与技术', '男', '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (7, '10004', '韩小虎', '123456', '软件技术1', '男', '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (8, '10005', '狄云辉', '123456', '软件技术', '男', '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (9, '10007', '李庆照', '123456', '软件技术', '男', '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (10, '10009', '李清照', '123456', '软件技术', NULL, '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (11, '10008', '李清照', '123456', '软件技术', NULL, '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (12, '100008', '杨雪莹', '123456', '软件技术', NULL, '161301', '2021-03-26');
+INSERT INTO `customer` VALUES (13, '100010', '2021/10/1', '132456', 'sd', '男', 'sc', '2021-04-29');
+INSERT INTO `customer` VALUES (14, '100111', '2021/10/1', '132456', 'sd', '男', 'sc', '2021-04-29');
+INSERT INTO `customer` VALUES (15, '1000111', '2021/10/1', '132456', 'sd', '男', 'sc', '2021-04-29');
+INSERT INTO `customer` VALUES (16, '101011', '李明2', '123456', NULL, '男', NULL, '2022-01-04');
 
 
 -- ----------------------------

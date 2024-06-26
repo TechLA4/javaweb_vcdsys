@@ -11,8 +11,8 @@
 <div class="page-container">
 	<form action="UserServlet?action=insertVcd" method="post" class="form form-horizontal" >
 		<input type="hidden" value="${vcd.id}" name="id">
-		<input type="hidden" value="${student.realname}" name="realname">
-		<input type="hidden" value="${student.stuno}" name="stuno">
+		<input type="hidden" value="${customer.realname}" name="realname">
+		<input type="hidden" value="${customer.stuno}" name="stuno">
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
@@ -50,7 +50,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
-				归还时间：</label>
+				预计归还时间：</label>
 			<div class="formControls col-xs-3 col-sm-3">
 				<input type="date" class="input-text"   id="ghsj" name="ghsj">
 			</div>

@@ -48,7 +48,7 @@
 			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
 				<ul class="cl">
 					<c:if test="${type==1 }">
-						<li>欢迎用户:${student.realname}</li>
+						<li>欢迎用户:${customer.realname}</li>
 
 					</c:if>
 					<c:if test="${type==2 }">
@@ -56,7 +56,7 @@
 
 					</c:if>
 					<li>&emsp;	操作</li>
-					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A">${user.username } <i class="Hui-iconfont">&#xe6d5;</i></a>
+					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><i class="Hui-iconfont">&#xe6d5;</i></a>
 						<ul class="dropDown-menu menu radius box-shadow">
 
 							<li><a href="LoginServlet?action=loginOut">退出</a></li>
@@ -87,7 +87,7 @@
 				<dt><i class="Hui-iconfont">&#xe62e;</i>&emsp;个人信息管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
 				<dd>
 					<ul>
-						<li><a href="StudentServlet?action=toEditStudentInfo" title="个人信息维护" target="mainFrame">  &emsp;个人信息维护</a></li>
+						<li><a href="CustomerServlet?action=toEditCustomerInfo" title="个人信息维护" target="mainFrame">  &emsp;个人信息维护</a></li>
 
 					</ul>
 
@@ -100,8 +100,8 @@
 				<dt>
 					<ul>
 						<li><a title="VCD列表" href="VcdServlet?action=list" target="mainFrame"> &emsp;VCD列表</a></li>
-						<li><a title="我的购买" href="UserServlet?action=queryBuyVcd&stuno=${student.stuno}" target="mainFrame"> &emsp;我的购买</a></li>
-						<li><a title="借还历史" href="UserServlet?action=findMyJyxx&stuno=${student.stuno}" target="mainFrame">  &emsp;借还历史</a></li>
+						<li><a title="我的购买" href="UserServlet?action=queryBuyVcd&stuno=${customer.stuno}" target="mainFrame"> &emsp;我的购买</a></li>
+						<li><a title="借还历史" href="UserServlet?action=findMyJyxx&stuno=${customer.stuno}" target="mainFrame">  &emsp;借还历史</a></li>
 					</ul>
 				</dt>
 			</dl>
@@ -119,7 +119,7 @@
 					<dd>
 						<ul>
 
-							<li><a title="用户管理" href="StudentServlet?action=list" target="mainFrame">  &emsp;用户管理</a></li>
+							<li><a title="用户管理" href="CustomerServlet?action=list" target="mainFrame">  &emsp;用户管理</a></li>
 
 						</ul>
 						<ul>
@@ -142,10 +142,10 @@
 						<li><a title="零售管理" href="VcdServlet?action=queryBuyVcd" target="mainFrame">  &emsp;零售管理</a></li>
 					</ul>
 					<ul>
-						<li><a title="零售统计" href="VcdServlet?action=queryVcdRecord" target="mainFrame">  &emsp;零售记录</a></li>
+						<li><a title="零售统计" href="VcdServlet?action=queryVcdBuyRecord" target="mainFrame">  &emsp;零售记录</a></li>
 					</ul>
 					<ul>
-						<li><a title="租借统计" href="VcdServlet?action=queryVcdRecord" target="mainFrame">  &emsp;租借记录</a></li>
+						<li><a title="租借统计" href="VcdServlet?action=queryVcdUseRecord" target="mainFrame">  &emsp;租借记录</a></li>
 					</ul>
 				</dt>
 			</dl>
