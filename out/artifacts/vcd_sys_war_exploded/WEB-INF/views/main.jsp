@@ -142,7 +142,10 @@
 						<li><a title="零售管理" href="VcdServlet?action=queryBuyVcd" target="mainFrame">  &emsp;零售管理</a></li>
 					</ul>
 					<ul>
-						<li><a title="零售记录" href="VcdServlet?action=queryVcdRecord" target="mainFrame">  &emsp;零售记录</a></li>
+						<li><a title="零售统计" href="VcdServlet?action=queryVcdRecord" target="mainFrame">  &emsp;零售记录</a></li>
+					</ul>
+					<ul>
+						<li><a title="租借统计" href="VcdServlet?action=queryVcdRecord" target="mainFrame">  &emsp;租借记录</a></li>
 					</ul>
 				</dt>
 			</dl>

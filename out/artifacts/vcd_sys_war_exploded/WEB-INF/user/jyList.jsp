@@ -8,7 +8,7 @@
 %>
 <jsp:include page="/WEB-INF/common/header.jsp"/>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> vcd管理 <span class="c-gray en">&gt;</span>个人借阅vcd <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> vcd管理 <span class="c-gray en">&gt;</span>个人借阅vcd </nav>
 <div class="page-container">
 	<div class="text-c">
 		<form action="UserServlet?action=findMyJyxxByid" method="post">
