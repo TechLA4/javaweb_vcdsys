@@ -84,8 +84,8 @@ SET FOREIGN_KEY_CHECKS = 1;
 -- ----------------------------
 -- Table structure for customer
 -- ----------------------------
-DROP TABLE IF EXISTS `customer`;
-CREATE TABLE `customer`  (
+DROP TABLE IF EXISTS `student`;
+CREATE TABLE `student`  (
                             `id` int(11) NOT NULL AUTO_INCREMENT,
                             `stuno` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL UNIQUE ,
                             `realname` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
@@ -100,8 +100,8 @@ CREATE TABLE `customer`  (
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES (3, '10003', '李明2', '123456', '133333', '男','2021-03-26');
-INSERT INTO `customer` VALUES (4, '10006', '张三1', '123456', '234431', '男', '2021-03-26');
+INSERT INTO `student` VALUES (3, '10003', '李明2', '123456', '133333', '男','2021-03-26');
+INSERT INTO `student` VALUES (4, '10006', '张三1', '123456', '234431', '男', '2021-03-26');
 
 
 
@@ -122,7 +122,7 @@ CREATE TABLE `buy`  (
   `creattime` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
   `price` DECIMAL(10,2) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
-  FOREIGN KEY (`stuno`) REFERENCES customer(`stuno`),
+  FOREIGN KEY (`stuno`) REFERENCES student(`stuno`),
   FOREIGN KEY (`vcdNo`) REFERENCES vcd(`vcdNo`)
  ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
@@ -153,7 +153,7 @@ CREATE TABLE `user`  (
   `flag` int(11) NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   FOREIGN KEY (`vcdNo`) REFERENCES vcd(`vcdNo`),
-  FOREIGN KEY (`userNo`) REFERENCES customer(`stuno`)
+  FOREIGN KEY (`userNo`) REFERENCES student(`stuno`)
 ) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------

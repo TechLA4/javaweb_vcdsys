@@ -3,6 +3,7 @@ package vcd.system.servlet;
 import vcd.system.entity.*;
 import vcd.system.service.UserService;
 import vcd.system.service.VcdService;
+import vcd.system.service.impl.DBServiceImpl;
 import vcd.system.service.impl.UserServiceImpl;
 import vcd.system.service.impl.VcdServiceImpl;
 import vcd.system.utils.WebUtils;
@@ -11,6 +12,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -21,6 +25,7 @@ public class VcdServlet extends BaseServlet {
 
 	private VcdService service = new VcdServiceImpl();
 	private UserService userService = new UserServiceImpl();
+	private DBServiceImpl dbService = new DBServiceImpl();
 
 	//分页查询vcd信息
 	protected void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//跳转到注册界面
@@ -285,5 +290,35 @@ public class VcdServlet extends BaseServlet {
 
 	protected void queryVcdUseRecord(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		request.getRequestDispatcher("/WEB-INF/vcd/userecord.jsp").forward(request,response);
+	}
+
+	protected void ToMain(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+		request.getRequestDispatcher("/WEB-INF/views/main.jsp").forward(request,response);
+	}
+
+	protected void DBBackup(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		dbService.Backup();
+		request.getRequestDispatcher("/WEB-INF/vcd/backup_success.jsp").forward(request,response);
+	}
+
+	protected void DBToRecovery(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+		request.getRequestDispatcher("/WEB-INF/vcd/recovery.jsp").forward(request,response);
+	}
+
+	protected void DBRecovery(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException{
+		String file_path = request.getParameter("file-input");
+
+		System.out.println("file: "+file_path);
+
+		String recovery_path = dbService.getBackupPath() + file_path;
+
+		Path path = Paths.get(recovery_path);
+
+		if(Files.exists(path)){
+			System.out.println("文件存在");
+		}
+
+		dbService.recovery(path);
+		request.getRequestDispatcher("/WEB-INF/vcd/recovery_success.jsp").forward(request,response);
 	}
 }

@@ -13,7 +13,7 @@ String path = request.getContextPath();
 <body>
 
 		<div class="cl pd-20">
-			<p>欢迎来到音响店VCD零售\出租管理系统</p>
+			<p>欢迎来到VCD零售\出租管理系统</p>
 
 </div>
 		<footer class="footer"></footer>

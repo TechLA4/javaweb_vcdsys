@@ -30,8 +30,6 @@
         <div class="m-login-warp">
             <form class="layui-form"  action="LoginServlet?action=login" method="post">
                 <div class="layui-form-item">
-
-
                     <input type="text" name="username" id="username" placeholder="请输入用户编号" autocomplete="off" class="layui-input">
                     <span style="color:red;" >${msg}</span>
                     <span style="color:red;" id="msg"></span>

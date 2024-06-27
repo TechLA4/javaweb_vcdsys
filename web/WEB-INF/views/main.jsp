@@ -33,14 +33,14 @@
 <script>DD_belatedPNG.fix('*');</script>
 
 
-<title>音响店VCD零售\出租管理系统</title>
+<title>VCD零售\出租管理系统</title>
 
 </head>
 <body>
 <header class="navbar-wrapper">
 	<div class="navbar navbar-fixed-top">
-		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="javascript:;">音响店VCD零售\出租管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">后台管理</a>
-			<span class="logo navbar-slogan f-l mr-10 hidden-xs">v1.0</span> 
+		<div class="container-fluid cl"> <a class="logo navbar-logo f-l mr-10 hidden-xs" href="javascript:;">VCD零售\出租管理系统</a> <a class="logo navbar-logo-m f-l mr-10 visible-xs" href="/aboutHui.shtml">后台管理</a>
+			<span class="logo navbar-slogan f-l mr-10 hidden-xs">115</span>
 			<a aria-hidden="false" class="nav-toggle Hui-iconfont visible-xs" href="javascript:;">&#xe667;</a>
 			
 		</ul>
@@ -49,17 +49,21 @@
 				<ul class="cl">
 					<c:if test="${type==1 }">
 						<li>欢迎用户:${customer.realname}</li>
-
+						<li>&emsp;	操作</li>
+						<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><i class="Hui-iconfont">&#xe6d5;</i></a>
+							<ul class="dropDown-menu menu radius box-shadow">
+								<li><a href="LoginServlet?action=loginOut">退出登录</a></li>
 					</c:if>
 					<c:if test="${type==2 }">
 						<li>欢迎管理员:${admin.nickname}</li>
-
+						<li>&emsp;	操作</li>
+						<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><i class="Hui-iconfont">&#xe6d5;</i></a>
+							<ul class="dropDown-menu menu radius box-shadow">
+								<li><a href="LoginServlet?action=loginOut">退出登录</a></li>
+								<li><a href="VcdServlet?action=DBBackup">数据备份</a></li>
+								<li><a href="VcdServlet?action=DBToRecovery">数据恢复</a></li>
 					</c:if>
-					<li>&emsp;	操作</li>
-					<li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><i class="Hui-iconfont">&#xe6d5;</i></a>
-						<ul class="dropDown-menu menu radius box-shadow">
 
-							<li><a href="LoginServlet?action=loginOut">退出</a></li>
 				</ul>
 			</li>
 					
