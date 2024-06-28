@@ -3,7 +3,8 @@ html {
   overflow: hidden;
 }
 body {
-  background: url("../images/login_line.jpg") left center repeat-x;
+  background: url("../images/login1.jpg") no-repeat center center fixed;
+  background-size: cover;
   height: 100%;
 }
 /*移除表单填充色*/
@@ -15,11 +16,11 @@ input:-webkit-autofill {
   border-color: #1E9FFF;
   color: #333;
 }
-/*页面背景色*/
-.m-login-bg {
-  background: url("../images/login.jpg") left center repeat-x;
-  height: 130%;
-}
+/*!*页面背景色*!*/
+/*.m-login-bg {*/
+/*  background: url("../images/login.jpg") left center repeat-x;*/
+/*  height: 130%;*/
+/*}*/
 .m-login {
   width: 390px;
   position: absolute;

@@ -7,7 +7,6 @@ String path = request.getContextPath();
 
 <head>
 	<title>VCD零售\出租管理系统</title>
-
 </head>
 
 <body>
@@ -15,8 +14,14 @@ String path = request.getContextPath();
 		<div class="cl pd-20">
 			<p>欢迎来到VCD零售\出租管理系统</p>
 
-</div>
+		</div>
+
 		<footer class="footer"></footer>
+
+<%--		<div class="cl">--%>
+<%--			<img src="../../static/images/vcd1.jpg"  style="max-width: 100%; height: auto;" >--%>
+
+<%--		</div>--%>
 
 
 </body>
