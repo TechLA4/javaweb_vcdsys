@@ -125,7 +125,7 @@
 
 
             if(!stuno) {
-                $("#msg").html("学号不能为空！");
+                $("#msg").html("编号不能为空！");
                 $("#stuno").focus(); // 聚焦
                 return false;
             } else  if(!relaname){

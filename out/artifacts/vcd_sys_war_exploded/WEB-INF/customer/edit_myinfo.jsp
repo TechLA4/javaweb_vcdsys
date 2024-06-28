@@ -20,7 +20,7 @@
 					<span class="c-red">*</span>
 					用户编号：</label>
 				<div class="formControls col-xs-3 col-sm-3">
-					<input type="text" class="input-text" value="${customer.stuno}" placeholder="请输入学号" id="stuno" name="stuno">
+					<input type="text" class="input-text" value="${customer.stuno}" placeholder="请输入编号" id="stuno" name="stuno">
 				</div>
 				<span class="msg" style="color:red;">${requestScope.msg}</span>
 			</div>
@@ -77,7 +77,7 @@
 $(function () {
     // 给注册绑定单击事件
     $("#sub_btn").click(function () {
-			//校验学号
+			//校验编号
 		var stunoText = $("#stuno").val();
 		if (stunoText =="") {
 			$("span.msg").text("id不许为空！");
