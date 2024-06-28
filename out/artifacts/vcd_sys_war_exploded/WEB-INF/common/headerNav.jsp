@@ -30,7 +30,7 @@
             <li class="layui-nav-item layui-this"><a href="LoginServlet?action=loginOut">首页</a></li>
             <li class="layui-nav-item"><a href="BorrowServlet?action=toBorrow">借阅规则</a></li>
             <li class="layui-nav-item"><a href="">查询图书</a></li>
-            <li class="layui-nav-item"><a href="">图书馆简介</a></li>
+            <li class="layui-nav-item"><a href="">图书馆类型</a></li>
                 <%--点击我的图书馆跳转登陆页面，进行登陆--%>
             <li class="layui-nav-item"><a href="LoginServlet?action=loginOut">我的图书馆</a></li>
         </ul>

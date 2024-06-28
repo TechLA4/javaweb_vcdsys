@@ -34,7 +34,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
-				简&emsp;&emsp;介：</label>
+				类&emsp;&emsp;型：</label>
 			<div class="formControls col-xs-3 col-sm-3">
 				<input type="text" class="input-text" value="${vcd.profile}" readonly id="profile" name="profile">
 			</div>

@@ -31,7 +31,7 @@
 
 					<th width="100">编号</th>
 					<th width="150">名称</th>
-					<th width="150">简介</th>
+					<th width="150">类型</th>
 					<th width="150">上架日期</th>
 					<th width="250">价格</th>
 					<th width="250">库存</th>
@@ -47,7 +47,17 @@
 					<td>${u.profile }</td>
 					<td>${u.creatTime }</td>
 					<td>${u.price }</td>
-					<td>${u.stock }</td>
+<%--					<td>${u.stock }</td>--%>
+					<td>
+						<c:choose>
+							<c:when test="${u.stock == 0}">
+								<span style="color:red; font-weight:bold;">${u.stock}</span>
+							</c:when>
+							<c:otherwise>
+								${u.stock}
+							</c:otherwise>
+						</c:choose>
+					</td>
 					<td class="f-14 td-manage">
                         <a style="text-decoration:none" class="ml-5" href="VcdServlet?action=query&id=${u.id}" onclick="Hui_admin_tab(this)"   title="编辑" ><i class="Hui-iconfont">&#xe6df;</i></a>
 						<a style="text-decoration:none" class="ml-5" onClick="del_vcd(this,'${u.id }')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>

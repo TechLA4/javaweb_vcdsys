@@ -50,18 +50,18 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
-				简&emsp;&emsp;介：</label>
+				类&emsp;&emsp;型：</label>
 			<div class="formControls col-xs-3 col-sm-3">
-				<input type="text" class="input-text" value="${vcd.profile}" placeholder="请输入简介" id="profile" name="profile">
+				<input type="text" class="input-text" value="${vcd.profile}" placeholder="请输入类型" id="profile" name="profile">
 			</div>
 		</div>
 
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-2">
 				<span class="c-red">*</span>
-				简&emsp;&emsp;介：</label>
+				库&emsp;&emsp;存：</label>
 			<div class="formControls col-xs-3 col-sm-3">
-				<input type="text" class="input-text" value="${vcd.stock}" placeholder="请输入简介" id="stock" name="stock">
+				<input type="text" class="input-text" value="${vcd.stock}" placeholder="请输入类型" id="stock" name="stock">
 			</div>
 		</div>
 
