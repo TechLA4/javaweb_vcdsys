@@ -35,8 +35,9 @@ public class CustomerServiceImpl implements CustomerService {
         return dao.update(record);
     }
 
-   
+   @Override
     public int delete(Integer id) {
+        System.out.println("fuck");
         return dao.delete(id);
     }
 

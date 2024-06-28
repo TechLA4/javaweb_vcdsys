@@ -35,7 +35,7 @@ public class LoginServlet extends BaseServlet {
 
     //登录操作
     protected void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//处理登录
-        String username = request.getParameter("username").trim();//接收学号/工号
+        String username = request.getParameter("username").trim();//接收编号/工号
         String pwd = request.getParameter("pwd").trim();
         int type=Integer.parseInt(request.getParameter("type").trim());
 	       switch (type) {

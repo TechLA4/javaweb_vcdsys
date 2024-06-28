@@ -25,9 +25,7 @@
 					<th width="80">姓名</th>
 					<th width="50">性别</th>
 					<th width="80">登录密码</th>
-					<th width="120">专业</th>
-					<th width="75">班级</th>
-					
+
 				
 					<th width="120">录入日期</th>
 					<th width="120">操作</th>
@@ -41,12 +39,11 @@
 				<td>${u.realname }</td>
 				<td>${u.sex }</td>	
 				<td>${u.pwd }</td>
-				<td>${u.major }</td>
-				<td>${u.bj }</td>			
+
 				<td>${u.createDate }</td>
 					<td class="f-14 td-manage">
 						<a style="text-decoration:none" class="ml-5" href="CustomerServlet?action=query&id=${u.id}" onclick="Hui_admin_tab(this)"   title="编辑" ><i class="Hui-iconfont">&#xe6df;</i></a>
-						<a style="text-decoration:none" class="ml-5" onClick="del_student(this,'${u.id }')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
+<%--						<a style="text-decoration:none" class="ml-5" onClick="del_student(this,'${u.stuno }')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>--%>
 					</td>
 				</tr>
 			</c:forEach>

@@ -140,10 +140,12 @@ public class CustomerServlet extends BaseServlet {
     //删除学生信息
     protected void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//根据id删除
         int id=WebUtils.parseInt(request.getParameter("id"),0);
+        System.out.println("id:"+id);
         service.delete(id);
+        System.out.println("meizhixing");
         response.sendRedirect(request.getContextPath()+"/CustomerServlet?action=list"); //重定向防止重复提交哦
     }
-    //根据学号和姓名查询
+    //根据编号和姓名查询
     protected void findByMap(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//条件查询
         String stuno=request.getParameter("stuno");
         String realname=request.getParameter("realname");

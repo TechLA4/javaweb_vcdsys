@@ -30,7 +30,7 @@
 					<th width="80">编号</th>
 					<th width="80">名称</th>
 					<th width="80">购买时间</th>
-					<th width="50">操作</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -40,9 +40,7 @@
 				<td>${u.vcdNo }</td>
 				<td>${u.vcdName }</td>
 				<td>${u.creatTime }</td>
-					<td class="f-14 td-manage">
-						<a style="text-decoration:none" class="ml-5" onClick="del_book(this,'${u.id }')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-					</td>
+
 				</tr>
 			</c:forEach>
 			</tbody>

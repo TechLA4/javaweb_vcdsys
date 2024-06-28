@@ -6,8 +6,8 @@ import java.util.List;
 import vcd.system.entity.*;
 
 public interface CustomerDao {
-    public Customer queryByStuno(String stuno);//根据学号查询
-    public Customer queryByStunoAndPwd(String stuno, String pwd);//根据学号和密码来登录
+    public Customer queryByStuno(String stuno);//根据编号查询
+    public Customer queryByStunoAndPwd(String stuno, String pwd);//根据编号和密码来登录
     public int save(Customer customer);//保存学生信息
     public Customer query(Integer id);
     public int update(Customer customer);

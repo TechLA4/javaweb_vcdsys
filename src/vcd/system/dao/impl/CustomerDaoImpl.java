@@ -16,10 +16,10 @@ import org.apache.commons.dbutils.handlers.ScalarHandler;
 
 public class CustomerDaoImpl implements CustomerDao {
     private QueryRunner runner=new QueryRunner(C3p0Utils.getDs());
-    //根据学号查询
+    //根据编号查询
     public Customer queryByStuno(String stuno) {
         try {//返回查询的信息
-            return runner.query("select * from student where stuno=?", new BeanHandler<Customer>(Customer.class),stuno);
+            return runner.query("select * from customer where stuno=?", new BeanHandler<Customer>(Customer.class),stuno);
         } catch (SQLException e) {
             throw new RuntimeException(e);//抛出运行异常
         }
@@ -29,7 +29,7 @@ public class CustomerDaoImpl implements CustomerDao {
   //返回查询的信息
     public Customer queryByStunoAndPwd(String stuno, String pwd) {
         try {
-            return runner.query("select * from student where stuno=? and pwd=?", new BeanHandler<Customer>(Customer.class),stuno,pwd);
+            return runner.query("select * from customer where stuno=? and pwd=?", new BeanHandler<Customer>(Customer.class),stuno,pwd);
         } catch (SQLException e) {
             throw new RuntimeException(e);//抛出运行异常
         }
@@ -40,7 +40,7 @@ public class CustomerDaoImpl implements CustomerDao {
     public int save(Customer customer) {
         try {
             //执行插入sql
-            runner.update("insert into student(stuno,realname,pwd,phone,sex,createDate) values (?,?,?,?,?,?)",
+            runner.update("insert into customer(stuno,realname,pwd,phone,sex,createDate) values (?,?,?,?,?,?)",
                    customer.getStuno(), customer.getRealname(), customer.getPwd(), customer.getPhone(), customer.getSex(), customer.getCreateDate());
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -51,11 +51,12 @@ public class CustomerDaoImpl implements CustomerDao {
     public static void main(String[] args) {
 		CustomerDaoImpl daoImpl=new CustomerDaoImpl();
 		/*daoImpl.save();*/
-			
+        daoImpl.delete(5);
 	}
+
     public Customer query(Integer id) {//根据id查询
         try {//返回查询的信息
-            return runner.query("select * from student where id=?", new BeanHandler<Customer>(Customer.class),id);
+            return runner.query("select * from customer where id=?", new BeanHandler<Customer>(Customer.class),id);
         } catch (SQLException e) {
             throw new RuntimeException(e);//抛出运行异常
         }
@@ -64,7 +65,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     public int update(Customer customer) {//更改学生信息
         try {//执行更改
-            runner.update("update student set stuno=?, realname=?,pwd=?,phone=?,sex=? where id=?",
+            runner.update("update customer set stuno=?, realname=?,pwd=?,phone=?,sex=? where id=?",
             		 customer.getStuno(), customer.getRealname(), customer.getPwd(), customer.getPhone(), customer.getSex(), customer.getId());
         } catch (SQLException e) {
             throw new RuntimeException(e);//抛出运行异常
@@ -74,7 +75,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
 
     public List<Customer> getPage(int pageNum, int pageSize) {
-        String sql="select * from student order by stuno desc limit ?,?";
+        String sql="select * from customer order by stuno desc limit ?,?";
         int startNo=(pageNum-1)*pageSize;
         List<Customer> list=null;
         try {
@@ -88,7 +89,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
    //查询学生信息
     public List<Customer> findByMap(String stuno, String realname) {
-        String sql="select * from student where 1=1 ";
+        String sql="select * from customer where 1=1 ";
         List<Customer> list=null;
         //todo 使用JavaBean对象的list集合的实现类 BeanListHandler类封装
         List<String> list1 = new ArrayList<String>();
@@ -118,7 +119,7 @@ public class CustomerDaoImpl implements CustomerDao {
     
     //统计数量
     public int queryCount() {
-        String sql="select count(*) from student";
+        String sql="select count(*) from customer";
         try {
             Long count =  (Long) runner.query(sql, new ScalarHandler());
             //将long的类型转成int类型
@@ -132,10 +133,14 @@ public class CustomerDaoImpl implements CustomerDao {
 
 
    //删除学生信息
+    @Override
     public int delete(Integer id) {
+        System.out.println("shit");
         try {
             //执行删除的sql
-            runner.update("delete from student where id=?",id);
+            System.out.println("id:   "+id);
+            //int Id = id.intValue();
+            runner.update("delete from customer where id=? ", id);
         } catch (SQLException e) {
             throw new RuntimeException(e);//抛出运行异常
         }
@@ -148,7 +153,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public List<Customer> findAllByPage(PageTool pageTool) {
-        String sql="select * from student limit ?,?";
+        String sql="select * from customer limit ?,?";
         List<Customer> customers =null;
         try {
             customers =runner.query(sql,new BeanListHandler<Customer>(Customer.class),pageTool.getStartIndex(),pageTool.getPageSize());

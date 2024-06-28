@@ -168,7 +168,7 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Customer findByStuno(String stuno) {
         try {//返回查询的信息
-            return runner.query("select * from student where stuno=?", new BeanHandler<Customer>(Customer.class),stuno);
+            return runner.query("select * from customer where stuno=?", new BeanHandler<Customer>(Customer.class),stuno);
         } catch (SQLException e) {
             throw new RuntimeException(e);//抛出运行异常
         }

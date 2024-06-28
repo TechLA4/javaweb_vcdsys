@@ -78,10 +78,10 @@
 	$(function () {
 		// 给注册绑定单击事件
 		$("#sub_btn").click(function () {
-			//校验学号
+			//校验编号
 			var stunoText = $("#stuno").val();
 			if (stunoText =="") {
-				$("span.msg").text("学号不许为空！");
+				$("span.msg").text("编号不许为空！");
 				return false;
 			}
 
