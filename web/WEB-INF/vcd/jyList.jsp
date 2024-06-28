@@ -62,9 +62,10 @@
 					<td>
 						<c:choose>
 							<c:when test="${u.flag == 0}">
+
 								${u.ghsj}
 								<c:if test="${fn:substring(u.ghsj, 0, 10) lt nowDate}">
-									（逾期未归还）
+									<span style="color:red; font-weight:bold;">（逾期未归还）</span>
 								</c:if>
 							</c:when>
 							<c:otherwise>
