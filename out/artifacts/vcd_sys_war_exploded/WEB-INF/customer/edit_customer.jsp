@@ -7,9 +7,16 @@
 			+ path + "/";
 %>
  <jsp:include page="/WEB-INF/common/header.jsp"/>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 <body>
 <div class="page-container">
 	<form action="CustomerServlet" method="post" class="form form-horizontal" >
+		<span style="color:red;" >${msg}</span>
+		<span style="color:red;" id="msg"></span>
 		<input type="hidden" value="${empty param.id ?"add":"update"}" name="action"/>
 		<input type="hidden" value="${customer.id}" name="id">
 		<input type="hidden" value="${type}" name="type">
@@ -64,8 +71,6 @@
 		</div>
 
 
-
-
 		<div class="row cl">
 			<div class="col-9 col-offset-2">
 				<button class="btn btn-primary radius"  id="sub_btn" type="submit" >${empty param.id ?"确认添加":"确认修改"}</button>
@@ -75,61 +80,49 @@
 	</form>
 </div>
 <script>
-	$(function () {
+	$(document).ready(function () {
 		// 给注册绑定单击事件
-		$("#sub_btn").click(function () {
+		$("#sub_btn").click(function (event) {
+			var errorMsg = ""; // 用于存储错误信息
+
 			//校验编号
-			var stunoText = $("#stuno").val();
-			if (stunoText =="") {
-				$("span.msg").text("编号不许为空！");
+			var stunoText = $("#stuno").val().trim();
+			if (stunoText == "") {
+				errorMsg = "编号不许为空！";
+				$("#msg").html(errorMsg);
+				event.preventDefault();
 				return false;
 			}
 
 			//校验密码
-			var pwdText = $("#pwd").val();
-			//2 创建正则表达式对象
+			var pwdText = $("#pwd").val().trim();
 			var pwdPatt = /^\w{5,12}$/;
-			//3 使用test方法验证
 			if (!pwdPatt.test(pwdText)) {
-				//4 提示用户结果
-				$("span.msg").text("密码至少6位！");
+				errorMsg = "密码至少5位到12位！";
+				$("#msg").html(errorMsg);
+				event.preventDefault();
+				return false;
+			}
 
+			//校验姓名
+			var realnameText = $("#realname").val().trim();
+			if (realnameText == "") {
+				errorMsg = "姓名不许为空！";
+				$("#msg").html(errorMsg);
+				event.preventDefault();
 				return false;
 			}
-			//姓名
-			var realnameText = $("#realname").val();
-			if (realnameText =="") {
-				$("span.msg").text("学生姓名不许为空！");
+
+			//校验电话
+			var phoneText = $("#phone").val().trim();
+			if (phoneText == "") {
+				errorMsg = "电话号不许为空！";
+				$("#msg").html(errorMsg);
+				event.preventDefault();
 				return false;
 			}
-			//校验专业
-			var majorText = $("#major").val();
-			if (majorText =="") {
-				$("span.msg").text("专业不许为空！");
-				return false;
-			}
-			//校验专业
-			var phone = $("#phone").val();
-			if (majorText == "") {
-				$("span.msg").text("电话号不许为空！");
-				return false;
-			}
-			// //校验班级
-			// var bjText = $("#bj").val();
-			// if (bjText =="") {
-			// 	$("span.msg").text("班级不许为空！");
-			// 	return false;
-			// }
 		});
-		// 去掉错误信息
-		setTimeout(function(){ $(".msg").html("")},10000);
-	})
-
-
-
-
-
-
+	});
 </script>
 
 

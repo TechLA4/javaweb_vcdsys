@@ -52,20 +52,8 @@
 						</c:choose>
 					</td>
 					<td class="f-14 td-manage">
-						<c:choose>
-							<c:when test="${u.stock == 0}">
-								<button class="btn btn-primary size-S radius" type="button" onclick="alert('库存不足，无法借阅')">借阅</button>
-								<button class="btn btn-warning size-S radius" type="button" onclick="alert('库存不足，无法购买')">购买</button>
-							</c:when>
-							<c:otherwise>
-								<a style="text-decoration:none" class="ml-5" href="UserServlet?action=insertVcdBySc&id=${u.id}" onclick="Hui_admin_tab(this)" title="借阅">
-									<button class="btn btn-primary size-S radius" type="button">借阅</button>
-								</a>
-								<a style="text-decoration:none" class="ml-5" href="UserServlet?action=BuyVcdByUser&id=${u.id}&stuno=${customer.stuno}" onclick="Hui_admin_tab(this)" title="购买">
-									<button class="btn btn-warning size-S radius" type="button">购买</button>
-								</a>
-							</c:otherwise>
-						</c:choose>
+						<a style="text-decoration:none" class="ml-5" href="VcdServlet?action=query&id=${u.id}" onclick="Hui_admin_tab(this)"   title="编辑" ><i class="Hui-iconfont">&#xe6df;</i></a>
+						<a style="text-decoration:none" class="ml-5" onClick="del_vcd(this,'${u.id }')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
 					</td>
 				</tr>
 

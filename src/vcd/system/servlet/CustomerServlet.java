@@ -145,6 +145,8 @@ public class CustomerServlet extends BaseServlet {
         System.out.println("meizhixing");
         response.sendRedirect(request.getContextPath()+"/CustomerServlet?action=list"); //重定向防止重复提交哦
     }
+
+    
     //根据编号和姓名查询
     protected void findByMap(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//条件查询
         String stuno=request.getParameter("stuno");

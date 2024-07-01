@@ -7,19 +7,27 @@
 			+ path + "/";
 %>
  <jsp:include page="/WEB-INF/common/header.jsp"/>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
 <body>
 <%--管理员信息修改--%>
 <div class="page-container">
 
 		<form action="AdminServlet?action=updateAdmin" method="post" class="form form-horizontal" >
-
+			<span style="color:red;" >${msg}</span>
+			<span style="color:red;" id="msg"></span>
 			<input type="hidden" value="${admin.id}" name="id">
 			<%--<input type="hidden" value="${type}" name="type">--%>
 
 			<div class="row cl">
 				<label class="form-label col-xs-4 col-sm-2">
 					<span class="c-red">*</span>
-					账&emsp;&emsp;号：</label>
+					管理员账户：</label>
 				<div class="formControls col-xs-3 col-sm-3">
 					<input type="text" class="input-text" value="${admin.username}" placeholder="请输入账号" id="username" name="username">
 				</div>
@@ -83,6 +91,38 @@ $(function () {
     });
     // 去掉错误信息
     setTimeout(function(){ $(".msg").html("")},10000);
+
+
+	document.addEventListener('DOMContentLoaded', function() {
+		document.getElementById('sub_btn').addEventListener('click', function(event) {
+			var username = document.getElementById('username').value.trim();
+			var pwd = document.getElementById('pwd').value.trim();
+			var nickname = document.getElementById('nickname').value.trim();
+
+			alert("管理员账户");
+			alert(username);
+
+			if (username === "") {
+				alert("管理员账户不许为空！");
+				event.preventDefault();
+				return;
+			}
+
+			if (pwd.length < 6) {
+				alert("登录密码必须大于6位！");
+				event.preventDefault();
+				return;
+			}
+
+			if (nickname === "") {
+				alert("管理员姓名不许为空！");
+				event.preventDefault();
+				return;
+			}
+		});
+	});
+
+
 })
 
 

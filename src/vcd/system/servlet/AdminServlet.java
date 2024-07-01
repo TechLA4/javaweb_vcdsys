@@ -39,9 +39,14 @@ public class AdminServlet extends BaseServlet {
 
     //跳转到管理员信息修改
     protected void toEditAdminInfo(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//跳转到添加用户界面
+
         int id= WebUtils.parseInt(request.getParameter("id"),0);
+
         Admin admin = as.queryAdminByid(id);
+
         request.setAttribute("admin" ,admin);
+
+
         request.getRequestDispatcher("/WEB-INF/admin/edit_myinfobyadmin.jsp").forward(request,response);
     }
 

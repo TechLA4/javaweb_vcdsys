@@ -29,8 +29,9 @@
 					<th width="50">编号</th>
 					<th width="50">名称</th>
 					<th width="120">借阅人</th>
-					<th width="80">归还时间</th>
-					<th width="50">预计借阅时间</th>
+					<th width="50">借阅时间</th>
+					<th width="80">预计/实际归还时间</th>
+
 					<th width="50">备注</th>
 					<th width="50">是否归还</th>
 				</tr>
@@ -41,8 +42,8 @@
 				<td>${u.vcdNo }</td>
 					<td>${u.vcdName }</td>
 					<td>${u.jyr }</td>
-					<td>${u.ghsj }</td>
 					<td>${u.jysj }</td>
+					<td>${u.ghsj }</td>
 					<td>${u.note }</td>
 						<c:if test="${u.flag == 0}">
 						<td style="background: red">未归还</td>

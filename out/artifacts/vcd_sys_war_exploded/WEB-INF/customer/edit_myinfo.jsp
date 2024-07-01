@@ -7,11 +7,17 @@
 			+ path + "/";
 %>
  <jsp:include page="/WEB-INF/common/header.jsp"/>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://www.layuicdn.com/layui-v2.5.6/css/layui.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
 <body>
 <div class="page-container">
 
 		<form action="CustomerServlet?action=update" method="post" class="form form-horizontal" >
-
+			<span style="color:red;" >${msg}</span>
+			<span style="color:red;" id="msg"></span>
 			<input type="hidden" value="${customer.id}" name="id">
 			<input type="hidden" value="${type}" name="type">
 
@@ -80,7 +86,7 @@ $(function () {
 			//校验编号
 		var stunoText = $("#stuno").val();
 		if (stunoText =="") {
-			$("span.msg").text("id不许为空！");
+			$("#msg").text("用户编号不许为空！");
 			return false;
 		}
 
@@ -91,14 +97,14 @@ $(function () {
 		//3 使用test方法验证
 		if (!pwdPatt.test(pwdText)) {
 			//4 提示用户结果
-			$("span.msg").text("密码至少6位！");
+			$("#msg").text("密码至少6位！");
 
 			return false;
 		}
 		//姓名
 		var realnameText = $("#realname").val();
 		if (realnameText =="") {
-			$("span.msg").text("学生姓名不许为空！");
+			$("#msg").text("姓名不许为空！");
 			return false;
 		}
 
@@ -108,9 +114,6 @@ $(function () {
     // 去掉错误信息
     setTimeout(function(){ $(".msg").html("")},10000);
 })
-
-
-
 
 
 

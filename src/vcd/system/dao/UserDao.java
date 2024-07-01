@@ -20,7 +20,7 @@ public interface UserDao {
 
     public List<Buy> findBuyByPage(PageTool pageTool, String stuno);//分页
 
-    public List<Buy> findBuyByUser(String vcdNo, String vcdName);//条件查询
+    public List<Buy> findBuyByUser(String vcdNo, String vcdName,String stuno);//条件查询
 
     public int delete(int id,String stuno);
 

@@ -56,33 +56,34 @@ CREATE TABLE `vcd`  (
                         PRIMARY KEY (`id`) USING BTREE,
                         CHECK (`stock` >= 0),
                         CHECK (`price` > 0),
-                        CHECK (STR_TO_DATE(`creattime`, '%Y-%m-%d') IS NOT NULL)
+                        CHECK (STR_TO_DATE(`creattime`, '%Y/%m/%d') IS NOT NULL)
 ) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
+
+
 
 -- ----------------------------
 -- Records of vcd
 -- ----------------------------
-INSERT INTO `vcd` VALUES (1, '1001', '三国演义', '电视剧', '2022-01-07', '11', '999');
-INSERT INTO `vcd` VALUES (2, '1002', '天空之城', '电影', '2022-01-08', '11', '999');
-INSERT INTO `vcd` VALUES (3, '1003', '老人与海', '电视剧', '2022-01-15', '35', '997');
-INSERT INTO `vcd` VALUES (4, '1004', '你的名字', '电影', '2022-01-15', '20', '999');
-INSERT INTO `vcd` VALUES (5, '1005', '南京南京', '电视剧', '2022-01-15', '35', '999');
+INSERT INTO `vcd` VALUES (1, '1001', '三国演义', '电视剧', '2022/01/07', '11', '999');
+INSERT INTO `vcd` VALUES (2, '1002', '天空之城', '电影', '2022/01/08', '11', '999');
+INSERT INTO `vcd` VALUES (3, '1003', '老人与海', '电视剧', '2022/01/15', '35', '997');
+INSERT INTO `vcd` VALUES (4, '1004', '你的名字', '电影', '2022/01/15', '20', '999');
+INSERT INTO `vcd` VALUES (5, '1005', '南京南京', '电视剧', '2022/01/15', '35', '999');
 
-INSERT INTO `vcd` VALUES (6, '1006', '星际穿越', '电影', '2022-01-20', '50', '100');
-INSERT INTO `vcd` VALUES (7, '1007', '盗梦空间', '电影', '2022-01-25', '45', '150');
-INSERT INTO `vcd` VALUES (8, '1008', '阿凡达', '电影', '2022-02-01', '60', '200');
-INSERT INTO `vcd` VALUES (9, '1009', '泰坦尼克号', '电影', '2022-02-05', '30', '300');
-INSERT INTO `vcd` VALUES (10, '1010', '哈利波特', '电视剧', '2022-02-10', '40', '500');
-INSERT INTO `vcd` VALUES (11, '1011', '指环王', '电视剧', '2022-02-15', '55', '250');
-INSERT INTO `vcd` VALUES (12, '1012', '蝙蝠侠', '电影', '2022-02-20', '35', '350');
-INSERT INTO `vcd` VALUES (13, '1013', '蜘蛛侠', '电影', '2022-02-25', '25', '450');
-INSERT INTO `vcd` VALUES (14, '1014', '复仇者联盟', '电影', '2022-03-01', '65', '150');
-INSERT INTO `vcd` VALUES (15, '1015', '黑客帝国', '电影', '2022-03-05', '55', '175');
+INSERT INTO `vcd` VALUES (6, '1006', '星际穿越', '电影', '2022/01/20', '50', '100');
+INSERT INTO `vcd` VALUES (7, '1007', '盗梦空间', '电影', '2022/01/25', '45', '150');
+INSERT INTO `vcd` VALUES (8, '1008', '阿凡达', '电影', '2022/02/01', '60', '200');
+INSERT INTO `vcd` VALUES (9, '1009', '泰坦尼克号', '电影', '2022/02/05', '30', '300');
+INSERT INTO `vcd` VALUES (10, '1010', '哈利波特', '电视剧', '2022/02/10', '40', '500');
+INSERT INTO `vcd` VALUES (11, '1011', '指环王', '电视剧', '2022/02/15', '55', '250');
+INSERT INTO `vcd` VALUES (12, '1012', '蝙蝠侠', '电影', '2022/02/20', '35', '350');
+INSERT INTO `vcd` VALUES (13, '1013', '蜘蛛侠', '电影', '2022/02/25', '25', '450');
+INSERT INTO `vcd` VALUES (14, '1014', '复仇者联盟', '电影', '2022/03/01', '65', '150');
+INSERT INTO `vcd` VALUES (15, '1015', '黑客帝国', '电影', '2022/03/05', '55', '175');
 
 
-INSERT INTO `vcd` VALUES (16, '1016', '雪豹', '电影', '2022-03-05', '55', '0');
-INSERT INTO `vcd` VALUES (17, '1017', '丁真', '电影', '2022-03-05', '55', '1');
-
+INSERT INTO `vcd` VALUES (16, '1016', '雪豹', '电影', '2022/03/05', '55', '0');
+INSERT INTO `vcd` VALUES (17, '1017', '丁真', '电影', '2022/03/05', '55', '1');
 SET FOREIGN_KEY_CHECKS = 1;
 
 
@@ -102,21 +103,20 @@ CREATE TABLE `customer`  (
                             `createDate` varchar(45) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
                             PRIMARY KEY (`id`) USING BTREE,
                             CHECK (`sex` IN ('男', '女')),
-                            CHECK (STR_TO_DATE(`createDate`, '%Y-%m-%d') IS NOT NULL)
+                            CHECK (STR_TO_DATE(`createDate`, '%Y/%m/%d') IS NOT NULL)
 ) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of customer
 -- ----------------------------
-INSERT INTO `customer` VALUES (1, '10001', '李明', '123456', '133333', '男','2021-03-26');
-INSERT INTO `customer` VALUES (2, '10002', '张三', '123456', '234431', '男', '2021-03-26');
-INSERT INTO `customer` VALUES (3, '10003', '赵六', '654321', '134567', '女', '2021-03-27');
-INSERT INTO `customer` VALUES (4, '10004', '钱七', '123', '135678', '男', '2021-03-28');
-INSERT INTO `customer` VALUES (5, '10005', '孙八', '123', '136789', '女', '2021-03-29');
+INSERT INTO `customer` VALUES (1, '10001', '李明', '123456', '133333', '男','2021/03/26');
+INSERT INTO `customer` VALUES (2, '10002', '张三', '123456', '234431', '男', '2021/03/26');
+INSERT INTO `customer` VALUES (3, '10003', '赵六', '654321', '134567', '女', '2021/03/27');
+INSERT INTO `customer` VALUES (4, '10004', '钱七', '123', '135678', '男', '2021/03/28');
+INSERT INTO `customer` VALUES (5, '10005', '孙八', '123', '136789', '女', '2021/03/29');
 
 # 用户性别约束测试
-INSERT INTO `customer` VALUES (6, '10006', '孙6', '123', '136789', '直升机', '2021-03-29');
-
+INSERT INTO `customer` VALUES (6, '10006', '孙6', '123', '136789', '直升机', '2021/03/29');
 
 
 

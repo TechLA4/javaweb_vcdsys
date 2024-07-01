@@ -106,7 +106,9 @@ public class UserServlet extends BaseServlet {
     protected void findBuyByUser(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {//条件查询
         String vcdNo=request.getParameter("vcdNo");
         String vcdName=request.getParameter("vcdName");
-        List<Buy> buys=service.findBuyByUser(vcdNo,vcdName);
+        Customer customer = (Customer)request.getSession().getAttribute("customer");
+
+        List<Buy> buys=service.findBuyByUser(vcdNo,vcdName,customer.getStuno());
         if(null == buys || buys.size() ==0 ){
             request.setAttribute("msg" ,"无此信息");
             request.getRequestDispatcher("/WEB-INF/user/buyList2.jsp").forward(request, response);

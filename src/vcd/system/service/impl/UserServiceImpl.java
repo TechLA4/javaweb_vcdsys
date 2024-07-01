@@ -45,8 +45,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Buy> findBuyByUser(String vcdNo, String vcdName) {
-        return dao.findBuyByUser(vcdNo,vcdName);
+    public List<Buy> findBuyByUser(String vcdNo, String vcdName,String stuno) {
+        return dao.findBuyByUser(vcdNo,vcdName,stuno);
     }
 
     @Override

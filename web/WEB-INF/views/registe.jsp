@@ -49,7 +49,7 @@
                 <%--<div class="layui-form-item">--%>
                     <%--<input type="text" name="bj" id="bj"   placeholder="请输入班级" value="${bj}"  autocomplete="off" class="layui-input">--%>
                 <div class="layui-form-item">
-                    <input type="text" name="phone" id="phone"   placeholder="请手机号码" value="${phone}"  autocomplete="off" class="layui-input">
+                    <input type="text" name="phone" id="phone"   placeholder="请输入手机号码" value="${phone}"  autocomplete="off" class="layui-input">
                 </div>
 
                 <div class="layui-form-item">
@@ -109,11 +109,11 @@
                 $("#phone").focus(); // 聚焦
                 return false;
             }
-          /*  var phone =  $("#phone").val();
-            if(!(/^1[34578]\d{9}$/.test(phone))){
-                $("span.msg").text("请输入正确的电话号码格式");
+            else if(!(/^1[34578]\d{9}$/.test(phone)))
+            {
+                $("#msg").html("请输入正确的电话号码格式！");
                 return false;
-            }*/
+            }
         });
 
      /*   $("#registe").on("click", function() {

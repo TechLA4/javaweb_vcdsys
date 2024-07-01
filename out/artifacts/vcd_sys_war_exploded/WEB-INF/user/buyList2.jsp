@@ -11,7 +11,7 @@
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> vcd管理 <span class="c-gray en">&gt;</span>vcd购买管理 </nav>
 <div class="page-container">
-	<div class="cl pd-5 bg-1 bk-gray mt-20"> <a class="btn btn-success radius" title="返回主界面" href="UserServlet?action=queryBuyVcd&stuno=${customer.stuno}" onclick="Hui_admin_tab(this)" ><i class="Hui-iconfont">&#xe67d;</i> 返回主界面</a>
+	<div class="cl pd-5 bg-1 bk-gray mt-20"> <a class="btn btn-success radius" title="返回购买记录界面" href="UserServlet?action=queryBuyVcd&stuno=${customer.stuno}" onclick="Hui_admin_tab(this)" ><i class="Hui-iconfont">&#xe67d;</i> 返回主界面</a>
 		</span>  </div>
 	<div class="mt-20">
 		<input type="hidden" value="${customer.stuno}" name="stuno">
@@ -22,7 +22,7 @@
 					<th width="80">编号</th>
 					<th width="80">名称</th>
 					<th width="80">购买时间</th>
-					<th width="50">操作</th>
+
 				</tr>
 			</thead>
 			<tbody>
@@ -32,9 +32,7 @@
 					<td>${u.vcdNo }</td>
 					<td>${u.vcdName }</td>
 					<td>${u.creatTime }</td>
-					<td class="f-14 td-manage">
-						<a style="text-decoration:none" class="ml-5" onClick="del_vcd(this,'${u.id }')" href="javascript:;" title="删除"><i class="Hui-iconfont">&#xe6e2;</i></a>
-					</td>
+
 				</tr>
 
 			</c:forEach>

@@ -119,7 +119,7 @@ public class VcdServlet extends BaseServlet {
 		List<Vcd> list=service.findVcdByNameOrId(vcdNo,vcdName);
 		if(null == list || list.size() ==0 ){
 			request.setAttribute("msg" ,"无此信息");
-			request.getRequestDispatcher("/WEB-INF/admin/vcd_list2.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/vcd/vcd_list2.jsp").forward(request, response);
 		}else {
 			request.removeAttribute("msg");
 			request.setAttribute("list" ,list);
@@ -160,6 +160,7 @@ public class VcdServlet extends BaseServlet {
 			vcd.setVcdName(vcdName);
 			vcd.setVcdNo(vcdNo);
 			vcd.setStock(stock);
+			System.out.println("vcd"+vcd);
 			service.addVcd(vcd);
 		}catch(Exception e) {};
 		response.sendRedirect(request.getContextPath()+"/VcdServlet?action=vcdList");//重定向防止重复提交哦

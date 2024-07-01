@@ -65,7 +65,8 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public List<User> findMyJyxxByid(String vcdNo, String vcdName, String stuno) {
-        String sql="select * from user where  flag = 0  ";
+//        String sql="select * from user where  flag = 0  ";
+        String sql="select * from user where 1=1 ";
         List<User> list=null;
         //todo 使用JavaBean对象的list集合的实现类 BeanListHandler类封装
         List<String> list1 = new ArrayList<String>();
@@ -125,7 +126,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<Buy> findBuyByUser(String vcdNo, String vcdName) {
+    public List<Buy> findBuyByUser(String vcdNo, String vcdName,String stuno) {
         String sql="select * from buy where 1=1 ";
         List<Buy> list=null;
         //todo 使用JavaBean对象的list集合的实现类 BeanListHandler类封装
@@ -142,6 +143,14 @@ public class UserDaoImpl implements UserDao {
             //将用户输入的参数添加到集合
             list1.add("%" + vcdName + "%");
         }
+
+        if (stuno != "") {
+            //如果用户输入的name不为空，那需要进行字符串拼接
+            sql += " and stuno like  ? ";
+            //将用户输入的参数添加到集合
+            list1.add("%" + stuno + "%");
+        }
+
         Object[] params = list1.toArray();
         try {
             list=runner.query(sql, params, new BeanListHandler<Buy>(Buy.class));
